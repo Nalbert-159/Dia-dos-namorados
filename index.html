@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz dia dos Namorados</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
+</head>
+<body>
+   <div class="center" id="inicio">
+    <button onclick="mostrarConteudo()">❤️ Clique aqui ❤️</button>
+   </div>
+
+   <div class="carousel" id="conteudo">
+    <img id="slide" src="" alt="Foto do casal">
+    <div class="love-message">Eu te amo há: ❤️</div>
+    <div class="timer" id="tempoDecorrido"></div>
+    <hr>
+    <div class="paragraph">
+      Amar você é como respirar, algo natural e essencial. Cada momento contigo é um presente e cada lembrança é um tesouro guardado no meu coração.
+    </div>
+  </div>
+    <script>
+        const imagens = [
+            "imagens/WhatsApp Image 2025-06-11 at 8.44.37 AM.jpeg",
+            "imagens/WhatsApp Image 2025-06-11 at 8.46.29 AM.jpeg",
+            "imagens/WhatsApp Image 2025-06-11 at 8.50.19 AM.jpeg"
+        ];
+
+        let index = 0;
+        const slide = document.getElementById("slide");
+
+        function mostrarConteudo() {
+            document.getElementById("inicio").style.display = "none";
+            document.getElementById("conteudo").style.display = "flex";
+            iniciarCarrossel();
+            atualizarTempo();
+            setInterval(atualizarTempo, 1000);
+        }
+
+        function iniciarCarrossel() {
+            slide.classList.add("mostrar");
+            slide.src = imagens[index];
+            setInterval(() => {
+                slide.classList.remove("mostrar");
+                setTimeout(() => {
+                    index = (index + 1) % imagens.length;
+                    slide.src = imagens[index];
+                    slide.classList.add("mostrar");
+                }, 2000); // tempo para a imagem desaparecer
+            }, 5000); // tempo total de exibição da imagem
+        }
+           
+
+        function atualizarTempo() {
+            const inicio = new Date("2024-08-05T00:00:00");
+            const agora = new Date();
+            let diff = agora - inicio;
+
+            const msPorSegundo = 1000;
+            const msPorMinuto = msPorSegundo * 60;
+            const msPorHora = msPorMinuto * 60;
+            const msPorDia = msPorHora * 24;
+            const msPorMes = msPorDia * 30.44;
+
+            const meses = Math.floor(diff / msPorMes);
+            diff -= meses * msPorMes;
+
+            const dias = Math.floor(diff / msPorDia);
+            diff -= dias * msPorDia;
+
+            const horas = Math.floor(diff / msPorHora);
+            diff -= horas * msPorHora;
+
+            const minutos = Math.floor(diff / msPorMinuto);
+            diff -= minutos * msPorMinuto;
+
+            const segundos = Math.floor(diff / msPorSegundo);
+
+            document.getElementById("tempoDecorrido").innerText =
+                `${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos desde 5 de agosto de 2024 ❤️`;
+        }
+    </script>
+</body>
+</html>

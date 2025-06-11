@@ -1,0 +1,67 @@
+body {
+      font-family: Arial, sans-serif;
+      background-color: #1b011a;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    button {
+      font-size: 24px;
+      padding: 15px 30px;
+      background-color: #ffffff;
+      color: white;
+      border-color: aqua;
+      background-color: transparent;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover{
+        background-color: #5e0927;
+        transition: 0.7s;
+    }
+    .carousel {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .carousel img {
+      width: 300px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      transition: opacity 1s ease-in-out;
+      opacity: 0;
+    }
+    .carousel img.mostrar{
+        opacity: 1;
+    }
+    .love-message {
+      font-size: 27px;
+      margin-top: 10px;
+      color: white;
+    }
+    .timer {
+      margin-top: 10px;
+      font-size: 18px;
+      color: white;
+    }
+    hr {
+      width: 80%;
+      margin: 60px auto;
+      border: 1px solid #5f1730;
+      
+    }
+    .paragraph {
+      margin: 0 10% 50px 10%;
+      font-size: 18px;
+      color: white;
+    }
